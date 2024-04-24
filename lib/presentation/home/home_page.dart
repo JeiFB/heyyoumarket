@@ -23,12 +23,13 @@ class _HomePageState extends State<HomePage> {
       const CarritoPage(),
       const ProfilePage()
     ];
+    List<String> names = ['Home', 'Favoritos', 'Comparar', 'Carrito', 'perfil'];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.greenAccent,
         centerTitle: true,
-        title: const Text(
-          'HomePage',
+        title: Text(
+          names[_currentIndex],
           style: TextStyle(color: Colors.white),
         ),
       ),

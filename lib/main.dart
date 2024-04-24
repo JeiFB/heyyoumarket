@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heyyoumarket/presentation/auth/login/login_page.dart';
 import 'package:heyyoumarket/presentation/auth/register/register_page.dart';
-import 'package:heyyoumarket/presentation/carrito/carrito_page.dart';
-import 'package:heyyoumarket/presentation/comparador/comparador_page.dart';
-import 'package:heyyoumarket/presentation/favoritos/favoritos_page.dart';
 import 'package:heyyoumarket/presentation/home/home_page.dart';
 // import 'package:heyyoumarket/presentation/profile/profile_page.dart';
 

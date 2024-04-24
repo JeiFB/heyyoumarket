@@ -7,13 +7,13 @@ class ComparadorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Comparador'),
+        title: const Text('Comparador'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(18.0),
         child: GridView.builder(
           itemCount: 2, // Número de tarjetas que deseas mostrar
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, // Dos columnas
             childAspectRatio:
                 1.0, // Relación de aspecto (ancho/alto) de las tarjetas
@@ -24,23 +24,23 @@ class ComparadorPage extends StatelessWidget {
               elevation: 7,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
+                children: [
                   // Agrega la imagen o contenido relevante para la comparación
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                              'assets/tu_imagen.png'), // Ruta de la imagen
-                          fit: BoxFit.cover, // Ajuste de la imagen
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
+                  // Expanded(
+                  //   child: Container(
+                  //     decoration: const BoxDecoration(
+                  //       image: DecorationImage(
+                  //         image: AssetImage(
+                  //             'assets/sugar.png'), // Ruta de la imagen
+                  //         fit: BoxFit.cover, // Ajuste de la imagen
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  const Padding(
                     padding: EdgeInsets.all(10.0),
                     child: Text(
-                      'Nombre del elemento', // Cambia esto por el nombre real
+                      'Nombre del producto', // Cambia esto por el nombre real
                       style: TextStyle(fontSize: 18.0),
                     ),
                   ),

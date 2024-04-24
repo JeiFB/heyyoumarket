@@ -7,8 +7,8 @@ class CarritoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // Simulación de datos del carrito (reemplaza con tus datos reales)
     final List<CartItem> itemsEnCarrito = [
-      CartItem(nombre: 'Producto A', precio: 20.0, cantidad: 2),
-      CartItem(nombre: 'Producto B', precio: 15.0, cantidad: 1),
+      CartItem(nombre: 'Producto A', precio: 20.000, cantidad: 1),
+      CartItem(nombre: 'Producto B', precio: 15.000, cantidad: 1),
       // Agrega más elementos aquí...
     ];
 

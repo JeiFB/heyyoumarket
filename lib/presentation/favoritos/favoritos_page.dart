@@ -10,7 +10,7 @@ class FavoritosPage extends StatelessWidget {
         itemCount: 4, // Cambia la cantidad de tarjetas según tus necesidades
         itemBuilder: (context, index) {
           return _buildCard(
-              Icons.star, 'Tarjeta $index', 'Descripción de la tarjeta $index');
+              Icons.star, 'Producto $index', 'Descripción del producto $index');
         },
       ),
     );
