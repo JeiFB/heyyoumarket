@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomePageContent extends StatelessWidget {
-  const HomePageContent({Key? key});
+  const HomePageContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class HomePageContent extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount:
                   2, // Cambia el número de columnas según tus necesidades
               crossAxisSpacing: 10,
@@ -36,7 +36,7 @@ class HomePageContent extends StatelessWidget {
         child: Column(
           children: [
             Icon(icon, size: 48, color: Colors.blue),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(title,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             SizedBox(height: 4),
