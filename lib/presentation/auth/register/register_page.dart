@@ -13,10 +13,46 @@ class RegisterPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const Text('Hey you market'),
-              const Text('welcome'),
+              const Column(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      'Hey you Market',
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      'Create an account',
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      'welcome',
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                ],
+              ),
               Column(
                 children: [
+                  const SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      'Name',
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                  TextFormField(
+                    onChanged: (value) {},
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
                   const SizedBox(
                     width: double.infinity,
                     child: Text(
@@ -28,7 +64,7 @@ class RegisterPage extends StatelessWidget {
                     onChanged: (value) {},
                   ),
                   const SizedBox(
-                    height: 25,
+                    height: 30,
                   ),
                   const SizedBox(
                     width: double.infinity,
@@ -43,17 +79,6 @@ class RegisterPage extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            'Forgot password',
-                            textAlign: TextAlign.end,
-                          )),
-                    ],
-                  ),
                   const SizedBox(
                     height: 30,
                   ),
@@ -61,7 +86,7 @@ class RegisterPage extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {},
-                      child: const Text('Log In'),
+                      child: const Text('Sing Up'),
                     ),
                   ),
                   const SizedBox(
@@ -74,14 +99,14 @@ class RegisterPage extends StatelessWidget {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: const Text('Log In with Google'),
+                          child: const Text('Sing Up with Google'),
                         ),
                       ),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: const Text('Log In with Facebook'),
+                          child: const Text('Sing Up with Facebook'),
                         ),
                       ),
                     ],
@@ -91,8 +116,12 @@ class RegisterPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Don\'t have an account?'),
-                  TextButton(onPressed: () {}, child: const Text('Sign Up')),
+                  const Text('Already have an account?'),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Log In')),
                 ],
               ),
             ],
