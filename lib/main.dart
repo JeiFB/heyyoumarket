@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:heyyoumarket/presentation/auth/login/login_page.dart';
 import 'package:heyyoumarket/presentation/auth/register/register_page.dart';
 import 'package:heyyoumarket/presentation/home/home_page.dart';
-// import 'package:heyyoumarket/presentation/profile/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
       initialRoute: 'login',
       routes: {
         'login': (BuildContext context) => const LoginPage(),
-        'registrarse': (BuildContext context) => const RegisterPage(),
+        'register': (BuildContext context) => const RegisterPage(),
         'homepage': (BuildContext context) => const HomePage(),
       },
     );

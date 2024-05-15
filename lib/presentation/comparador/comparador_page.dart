@@ -20,7 +20,7 @@ class ComparadorPage extends StatelessWidget {
           ),
           itemBuilder: (BuildContext context, int index) {
             // Aquí puedes personalizar el contenido de cada tarjeta
-            return Card(
+            return const Card(
               elevation: 7,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +37,7 @@ class ComparadorPage extends StatelessWidget {
                   //     ),
                   //   ),
                   // ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.all(10.0),
                     child: Text(
                       'Nombre del producto', // Cambia esto por el nombre real
