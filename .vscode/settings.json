@@ -1,4 +1,5 @@
 {
-     "editor.fontFamily": "Cascadia Code PL",
-    "editor.fontLigatures": true
+    "editor.fontFamily": "Cascadia Code PL",
+    "editor.fontLigatures": true,
+    "cmake.sourceDirectory": "C:/Users/Carlos Gomez/Documents/heyyoumarket/heyyoumarket/linux"
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "325405457917",
+    "project_id": "heyyoumarket",
+    "storage_bucket": "heyyoumarket.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:325405457917:android:28c80d51c1e87614c4ed94",
+        "android_client_info": {
+          "package_name": "com.example.heyyoumarket"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWSa6t7-FKDHFnUyVFQm-CgVIkCH8fECM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

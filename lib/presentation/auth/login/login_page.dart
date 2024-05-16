@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -5,6 +6,9 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    String email = 'test@gmail.com';
+    String password = '123456';
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -25,7 +29,9 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   TextFormField(
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      email = value;
+                    },
                   ),
                   const SizedBox(
                     height: 25,
@@ -38,7 +44,9 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   TextFormField(
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      password = value;
+                    },
                   ),
                   const SizedBox(
                     height: 30,
@@ -60,7 +68,12 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        final data =
+                            await firebaseAuth.signInWithEmailAndPassword(
+                                email: email, password: password);
+                        Navigator.popAndPushNamed(context, 'homepage');
+                      },
                       child: const Text('Log In'),
                     ),
                   ),
