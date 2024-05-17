@@ -24,7 +24,6 @@ class LoginPage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const SizedBox(height: 50), // Añade un espaciado superior
-                const SizedBox(height: 10),
                 Transform.translate(
                   offset: const Offset(-30,
                       0), // Ajusta este valor para mover "market" hacia arriba y a la derecha
