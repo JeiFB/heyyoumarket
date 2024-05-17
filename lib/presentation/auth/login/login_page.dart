@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:heyyoumarket/presentation/components/heyyou_button.dart';
+import 'package:heyyoumarket/presentation/components/heyyou_text_form_field.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -10,159 +11,149 @@ class LoginPage extends StatelessWidget {
     FirebaseAuth firebaseAuth = FirebaseAuth.instance;
     String email = 'test@gmail.com';
     String password = '123456';
+
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20),
-        child: SizedBox(
-          child: ListView(
-            children: [
-              Column(
-                children: [
-                  const SizedBox(
-                      width: double.infinity,
-                      child: Text(
-                        'Bienvenido/a',
+      resizeToAvoidBottomInset: false, // Evita que el teclado provoque scroll
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const SizedBox(height: 50), // Añade un espaciado superior
+                const SizedBox(height: 10),
+                Transform.translate(
+                  offset: const Offset(-30,
+                      0), // Ajusta este valor para mover "market" hacia arriba y a la derecha
+                  child: const Text(
+                    'Heyou',
+                    style: TextStyle(
+                      fontFamily: 'heyam',
+                      fontSize: 60,
+                      color: Color.fromARGB(255, 0, 204, 102),
+                    ),
+                  ),
+                ),
+                Transform.translate(
+                  offset: const Offset(30,
+                      -30), // Ajusta este valor para mover "market" hacia arriba y a la derecha
+                  child: const Text(
+                    'market',
+                    style: TextStyle(
+                      fontFamily: 'heyam',
+                      fontSize: 60,
+                      color: Color.fromARGB(255, 0, 204, 102),
+                    ),
+                  ),
+                ),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Agrega tu correo',
+                    style: TextStyle(fontFamily: 'Feather Bold', fontSize: 15),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                const HeyYouTextFormField(
+                  'Tu correo',
+                  icon: Icons.email_rounded,
+                ),
+                const SizedBox(height: 25),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Agrega tu contraseña',
+                    style: TextStyle(fontFamily: 'Feather Bold', fontSize: 15),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                const HeyYouTextFormField(
+                  'Tu contraseña',
+                  icon: Icons.lock,
+                  isPassword: true,
+                ),
+                const SizedBox(height: 10),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      '¿Olvidaste tu contreña?',
+                      style: TextStyle(
+                          fontFamily: 'Feather Bold',
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 0, 204, 102)),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                SizedBox(
+                    width: double.infinity,
+                    child: HeyYouButton(
+                        texto: 'Ingresar',
+                        onPressed: () async {
+                          final data =
+                              await firebaseAuth.signInWithEmailAndPassword(
+                            email: email,
+                            password: password,
+                          );
+                          Navigator.popAndPushNamed(context, 'homepage');
+                        },
+                        color: const Color.fromARGB(255, 0, 204, 102),
+                        textColor: Colors.white)),
+                const SizedBox(height: 30),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                        width: double.infinity,
+                        child: HeyYouButton(
+                            iconPath: 'assets/img/google.png',
+                            fSize: 20,
+                            pWith: 5,
+                            texto: 'Ingresar con google',
+                            onPressed: () {},
+                            color: Colors.white,
+                            textColor: Colors.black45)),
+                    SizedBox(
+                        width: double.infinity,
+                        child: HeyYouButton(
+                            iconPath: 'assets/img/facebook.png',
+                            fSize: 20,
+                            pWith: 5,
+                            texto: 'Ingresar con facebook',
+                            onPressed: () {},
+                            color: Colors.white,
+                            textColor: Colors.black45))
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('¿No tienes una cuenta?',
                         style: TextStyle(
                             fontFamily: 'Feather Bold',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
-                      )),
-                  const SizedBox(
-                      width: double.infinity,
-                      child: Text('Heyou market',
-                          style: TextStyle(
-                              fontFamily: 'heyam',
-                              fontSize: 60,
-                              color: Color.fromARGB(255, 0, 204, 102)))),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  const SizedBox(
-                    width: double.infinity,
-                    child: Text(
-                      'Agrega tu correo',
-                      style:
-                          TextStyle(fontFamily: 'Feather Bold', fontSize: 15),
-                      textAlign: TextAlign.start,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  TextFormField(
-                    cursorColor: const Color.fromARGB(255, 0, 204, 102),
-                    decoration: InputDecoration(
-                      hintText: 'Tu correo',
-                      hintStyle: const TextStyle(
-                          color: Colors.grey,
-                          fontFamily: 'Feather Bold',
-                          fontSize: 14),
-                      filled: true,
-                      fillColor: const Color.fromARGB(40, 0, 204, 102),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: const BorderSide(
-                            width: 1.0,
-                            color: Color.fromARGB(255, 0, 204, 102)),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: const BorderSide(
-                          width: 2.0,
-                          color: Color.fromARGB(255, 0, 204, 102),
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide
-                            .none, // Sin borde cuando no está seleccionado
-                      ),
-                    ),
-                    onChanged: (value) {
-                      email = value;
-                    },
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  const SizedBox(
-                    width: double.infinity,
-                    child: Text(
-                      'Agrega tu contraseña',
-                      textAlign: TextAlign.start,
-                    ),
-                  ),
-                  TextFormField(
-                    onChanged: (value) {
-                      password = value;
-                    },
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            'Forgot password',
-                            textAlign: TextAlign.end,
-                          )),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () async {
-                        final data =
-                            await firebaseAuth.signInWithEmailAndPassword(
-                                email: email, password: password);
-                        Navigator.popAndPushNamed(context, 'homepage');
-                      },
-                      child: const Text('Log In'),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Log In with Google'),
-                        ),
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Log In with Facebook'),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Don\'t have an account?'),
-                  TextButton(
+                            fontSize: 14,
+                            color: Colors.grey)),
+                    TextButton(
                       onPressed: () {
                         Navigator.pushNamed(context, 'register');
                       },
-                      child: const Text('Sign Up')),
-                ],
-              ),
-            ],
+                      child: const Text('Registrarse',
+                          style: TextStyle(
+                              fontFamily: 'Feather Bold',
+                              fontSize: 14,
+                              color: Color.fromARGB(255, 0, 153, 77))),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20), // Añade un espaciado inferior
+              ],
+            ),
           ),
         ),
       ),
