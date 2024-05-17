@@ -1,15 +1,12 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:heyyoumarket/firebase_options.dart';
+import 'package:heyyoumarket/injection.dart';
 import 'package:heyyoumarket/presentation/auth/login/login_page.dart';
 import 'package:heyyoumarket/presentation/auth/register/register_page.dart';
 import 'package:heyyoumarket/presentation/home/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await configureDependecies();
   runApp(const MyApp());
 }
 

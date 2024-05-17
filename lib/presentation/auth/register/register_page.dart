@@ -6,6 +6,8 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(

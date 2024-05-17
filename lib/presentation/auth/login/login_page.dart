@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -14,21 +15,70 @@ class LoginPage extends StatelessWidget {
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20),
         child: SizedBox(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: ListView(
             children: [
-              const Text('Hey you market'),
-              const Text('welcome'),
               Column(
                 children: [
                   const SizedBox(
+                      width: double.infinity,
+                      child: Text(
+                        'Bienvenido/a',
+                        style: TextStyle(
+                            fontFamily: 'Feather Bold',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      )),
+                  const SizedBox(
+                      width: double.infinity,
+                      child: Text('Heyou market',
+                          style: TextStyle(
+                              fontFamily: 'heyam',
+                              fontSize: 60,
+                              color: Color.fromARGB(255, 0, 204, 102)))),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  const SizedBox(
                     width: double.infinity,
                     child: Text(
-                      'Email',
+                      'Agrega tu correo',
+                      style:
+                          TextStyle(fontFamily: 'Feather Bold', fontSize: 15),
                       textAlign: TextAlign.start,
                     ),
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
+                    cursorColor: const Color.fromARGB(255, 0, 204, 102),
+                    decoration: InputDecoration(
+                      hintText: 'Tu correo',
+                      hintStyle: const TextStyle(
+                          color: Colors.grey,
+                          fontFamily: 'Feather Bold',
+                          fontSize: 14),
+                      filled: true,
+                      fillColor: const Color.fromARGB(40, 0, 204, 102),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: const BorderSide(
+                            width: 1.0,
+                            color: Color.fromARGB(255, 0, 204, 102)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: const BorderSide(
+                          width: 2.0,
+                          color: Color.fromARGB(255, 0, 204, 102),
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide
+                            .none, // Sin borde cuando no está seleccionado
+                      ),
+                    ),
                     onChanged: (value) {
                       email = value;
                     },
@@ -39,7 +89,7 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(
                     width: double.infinity,
                     child: Text(
-                      'Password',
+                      'Agrega tu contraseña',
                       textAlign: TextAlign.start,
                     ),
                   ),
