@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:heyyoumarket/presentation/components/heyyou_button.dart';
 import 'package:heyyoumarket/presentation/components/heyyou_text_form_field.dart';
@@ -8,9 +8,9 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-    String email = 'test@gmail.com';
-    String password = '123456';
+    // FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    // String email = 'test@gmail.com';
+    // String password = '123456';
 
     return Scaffold(
       backgroundColor: Colors.white,

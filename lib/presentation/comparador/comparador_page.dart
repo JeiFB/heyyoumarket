@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ComparadorPage extends StatelessWidget {
-  const ComparadorPage({Key? key});
+  const ComparadorPage({super.key});
 
   @override
   Widget build(BuildContext context) {

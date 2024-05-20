@@ -13,7 +13,7 @@ class HeyYouTextFormField extends StatefulWidget {
   });
 
   @override
-  _HeyYouTextFormFieldState createState() => _HeyYouTextFormFieldState();
+  createState() => _HeyYouTextFormFieldState();
 }
 
 class _HeyYouTextFormFieldState extends State<HeyYouTextFormField> {

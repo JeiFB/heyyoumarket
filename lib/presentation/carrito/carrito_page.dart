@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CarritoPage extends StatelessWidget {
-  const CarritoPage({Key? key});
+  const CarritoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class CarritoPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Carrito de Compras'),
+        title: const Text('Carrito de Compras'),
       ),
       body: ListView.builder(
         itemCount: itemsEnCarrito.length,
