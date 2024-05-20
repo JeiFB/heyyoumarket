@@ -4,11 +4,12 @@ class HeyYouTextFormField extends StatefulWidget {
   final String hintText;
   final IconData? icon;
   final bool isPassword;
-
+  final String initial;
   const HeyYouTextFormField(
     this.hintText, {
     this.icon,
     this.isPassword = false,
+    this.initial = '',
     super.key,
   });
 
@@ -49,6 +50,7 @@ class _HeyYouTextFormFieldState extends State<HeyYouTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: widget.initial,
       focusNode: _focusNode,
       obscureText: widget.isPassword ? _obscureText : false,
       cursorColor: const Color.fromARGB(255, 0, 204, 102),

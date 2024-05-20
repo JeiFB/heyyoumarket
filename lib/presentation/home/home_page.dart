@@ -19,9 +19,10 @@ class _HomePageState extends State<HomePage> {
       const HomePageContent(),
       const ProductsPage(),
       const FavoritosPage(),
-      const ProfilePage()
+      const ProfilePage(),
     ];
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 242, 248, 252),
       body: pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.white,
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: 'Perfil',
-            )
+            ),
           ]),
     );
   }
