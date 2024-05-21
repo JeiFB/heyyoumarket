@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         'login': (BuildContext context) => const LoginPage(),
         'register': (BuildContext context) => const RegisterPage(),
         'homepage': (BuildContext context) => const HomePage(),
-        'producto': (BuildContext context) => ProductoPage(),
+        'producto': (BuildContext context) => const ProductoPage(),
       },
     );
   }

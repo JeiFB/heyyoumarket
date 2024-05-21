@@ -11,7 +11,6 @@ class ProductoPage extends StatelessWidget {
           SliverAppBar(
             backgroundColor: const Color.fromARGB(255, 242, 248, 252),
             automaticallyImplyLeading: false,
-            // leading: const Text(''),
             floating: true,
             pinned: false,
             snap: true,
@@ -106,7 +105,7 @@ class ProductoPage extends StatelessWidget {
                             ),
                           ),
                           const Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Text(
                               'Arroz del campo riopilapue 5kg',
                               style: TextStyle(
@@ -114,7 +113,7 @@ class ProductoPage extends StatelessWidget {
                             ),
                           ),
                           const Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Text(
                               '\$18.072',
                               style: TextStyle(
@@ -129,32 +128,64 @@ class ProductoPage extends StatelessWidget {
                                   TextStyle(fontSize: 15, color: Colors.grey),
                             ),
                           ),
+                          const Divider(),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Column(
+                              TextButton(
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'Todos los produtos de la tienda D1',
+                                    textAlign: TextAlign.start,
+                                  )),
+                            ],
+                          ),
+                          const Divider(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
                                 children: [
-                                  SizedBox(
-                                    height: 30,
-                                    child: IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                            Icons.thumb_up_outlined)),
+                                  Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 30,
+                                        child: IconButton(
+                                            onPressed: () {},
+                                            icon: const Icon(
+                                                Icons.thumb_up_outlined)),
+                                      ),
+                                      const Text('600')
+                                    ],
                                   ),
-                                  const Text('600')
+                                  Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 30,
+                                        child: IconButton(
+                                            onPressed: () {},
+                                            icon: const Icon(
+                                                Icons.thumb_down_outlined)),
+                                      ),
+                                      const Text('50')
+                                    ],
+                                  )
                                 ],
                               ),
-                              Column(
+                              Row(
                                 children: [
-                                  SizedBox(
-                                    height: 30,
-                                    child: IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                            Icons.thumb_down_outlined)),
-                                  ),
-                                  const Text('50')
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(Icons.share)),
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(Icons.favorite_border)),
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                          Icons.add_shopping_cart_rounded)),
                                 ],
-                              )
+                              ),
                             ],
                           )
                         ],
@@ -162,7 +193,69 @@ class ProductoPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Segunda tarjeta con GridView adaptable
+                // Segunda tarjeta con TabBar y TabBarView
+                Card(
+                  margin: const EdgeInsets.symmetric(vertical: 0.8),
+                  color: Colors.white,
+                  child: SizedBox(
+                    height: 400, // Ajusta la altura según sea necesario
+                    child: DefaultTabController(
+                      length: 2,
+                      child: Column(
+                        children: [
+                          const TabBar(
+                            tabs: [
+                              Tab(text: 'Comentarios'),
+                              Tab(text: 'Similares'),
+                            ],
+                            labelColor: Colors.black,
+                            indicatorColor: Color.fromARGB(255, 0, 204, 102),
+                          ),
+                          Expanded(
+                            child: TabBarView(
+                              children: [
+                                // Contenido de Comentarios
+                                ListView.builder(
+                                  itemCount: 3, // Número de comentarios
+                                  itemBuilder: (context, index) {
+                                    return ListTile(
+                                      title: Text('Comentario #${index + 1}'),
+                                      subtitle:
+                                          const Text('Este es un comentario.'),
+                                    );
+                                  },
+                                ),
+                                // Contenido de Similares
+                                ListView.builder(
+                                  itemCount: 3, // Número de productos similares
+                                  itemBuilder: (context, index) {
+                                    return ListTile(
+                                      subtitle: Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Image.asset(
+                                                'assets/img/rice.png',
+                                                cacheHeight: 70,
+                                              ),
+                                              const Text(
+                                                  'Producto de otra tienda.'),
+                                            ],
+                                          ),
+                                          const Divider()
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
