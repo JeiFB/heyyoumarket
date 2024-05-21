@@ -3,6 +3,7 @@ import 'package:heyyoumarket/injection.dart';
 import 'package:heyyoumarket/presentation/auth/login/login_page.dart';
 import 'package:heyyoumarket/presentation/auth/register/register_page.dart';
 import 'package:heyyoumarket/presentation/home/home_page.dart';
+import 'package:heyyoumarket/presentation/producto/producto_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         'login': (BuildContext context) => const LoginPage(),
         'register': (BuildContext context) => const RegisterPage(),
         'homepage': (BuildContext context) => const HomePage(),
+        'producto': (BuildContext context) => ProductoPage(),
       },
     );
   }

@@ -10,10 +10,12 @@ class ProductoPage extends StatelessWidget {
         slivers: [
           SliverAppBar(
             backgroundColor: const Color.fromARGB(255, 242, 248, 252),
+            automaticallyImplyLeading: false,
+            // leading: const Text(''),
             floating: true,
             pinned: false,
             snap: true,
-            expandedHeight: 120.0,
+            expandedHeight: 80.0,
             flexibleSpace: FlexibleSpaceBar(
               background: Card(
                 color: Colors.white,
@@ -25,87 +27,34 @@ class ProductoPage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                              margin: const EdgeInsets.only(left: 10),
-                              child: const Text(
-                                'Favoritos',
-                                style: TextStyle(
-                                    fontSize: 25, fontWeight: FontWeight.bold),
-                              )),
+                          Row(
+                            children: [
+                              IconButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  icon: const Icon(
+                                    Icons.arrow_back_ios_new_rounded,
+                                    size: 25,
+                                    color: Colors.black,
+                                  )),
+                              Container(
+                                  margin: const EdgeInsets.only(left: 10),
+                                  child: const Text(
+                                    'Producto',
+                                    style: TextStyle(
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                            ],
+                          ),
                           IconButton(
                               onPressed: () {},
                               icon: const Icon(
-                                Icons.search,
+                                Icons.share,
                                 size: 25,
                                 color: Colors.black,
                               )),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Card(
-                            color: const Color.fromARGB(255, 242, 248, 252),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            child: const Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                // const SizedBox(height: 10.0),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 15.0, vertical: 5),
-                                  child: Text(
-                                    'Todo',
-                                    style: TextStyle(fontSize: 16.0),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Card(
-                            color: const Color.fromARGB(255, 242, 248, 252),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            child: const Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                // const SizedBox(height: 10.0),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 15.0, vertical: 5),
-                                  child: Text(
-                                    'D1',
-                                    style: TextStyle(fontSize: 16.0),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Card(
-                            color: const Color.fromARGB(255, 242, 248, 252),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            child: const Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                // const SizedBox(height: 10.0),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 15.0, vertical: 5),
-                                  child: Text(
-                                    'ARA',
-                                    style: TextStyle(fontSize: 16.0),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                         ],
                       ),
                     ),
@@ -117,117 +66,103 @@ class ProductoPage extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               [
+                Container(
+                  width: double.infinity,
+                  height: 200,
+                  color: const Color.fromARGB(255, 242, 248, 252),
+                  child: Image.asset(
+                    'assets/img/rice.png',
+                    cacheHeight: 120,
+                    alignment: Alignment.center,
+                  ),
+                ),
                 // Primera tarjeta
                 Card(
                   margin: const EdgeInsets.symmetric(vertical: 0.8),
                   color: Colors.white,
                   child: Container(
                     margin: const EdgeInsets.only(bottom: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // const SizedBox(height: 10.0),
-                        SizedBox(
-                          height:
-                              120.0, // Altura del contenedor para las tarjetas
-                          child: Row(
-                            children: List.generate(1, (index) {
-                              return Container(
-                                width: 150.0, // Ancho de cada tarjeta
-                                margin: const EdgeInsets.only(right: 8.0),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Card(
-                                    color: const Color.fromARGB(
-                                        255, 242, 248, 252),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(40.0),
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        const Icon(Icons.local_pizza,
-                                            size: 50.0),
-                                        // const SizedBox(height: 10.0),
-                                        Text(
-                                          'Producto $index',
-                                          style:
-                                              const TextStyle(fontSize: 16.0),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  'D1',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600),
                                 ),
-                              );
-                            }),
+                                Image.asset(
+                                  'assets/img/d1.png',
+                                  cacheHeight: 30,
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                        // const SizedBox(
-                        //     height: 10.0), // Espacio entre las filas
-                      ],
+                          const Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Arroz del campo riopilapue 5kg',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          const Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              '\$18.072',
+                              style: TextStyle(
+                                  fontSize: 30, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              '5kg * \$3614.40/kg',
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.grey),
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Column(
+                                children: [
+                                  SizedBox(
+                                    height: 30,
+                                    child: IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                            Icons.thumb_up_outlined)),
+                                  ),
+                                  const Text('600')
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  SizedBox(
+                                    height: 30,
+                                    child: IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                            Icons.thumb_down_outlined)),
+                                  ),
+                                  const Text('50')
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 // Segunda tarjeta con GridView adaptable
-                Card(
-                  margin: const EdgeInsets.symmetric(vertical: 0.8),
-                  color: Colors.white,
-                  child: Container(
-                    margin: const EdgeInsets.only(bottom: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // const SizedBox(height: 10.0),
-                        SizedBox(
-                          height:
-                              120.0, // Altura del contenedor para las tarjetas
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: List.generate(1, (index) {
-                                return Container(
-                                  width: 150.0, // Ancho de cada tarjeta
-                                  margin: const EdgeInsets.only(right: 8.0),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Card(
-                                      color: const Color.fromARGB(
-                                          255, 242, 248, 252),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(40.0),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          const Icon(Icons.local_pizza,
-                                              size: 50.0),
-                                          // const SizedBox(height: 10.0),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              'Producto $index',
-                                              style: const TextStyle(
-                                                  fontSize: 16.0),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              }),
-                            ),
-                          ),
-                        ),
-                        // const SizedBox(
-                        //     height: 10.0), // Espacio entre las filas
-                      ],
-                    ),
-                  ),
-                ),
               ],
             ),
           ),

@@ -82,7 +82,7 @@ class ProductsPage extends StatelessWidget {
                                   margin: const EdgeInsets.only(left: 4),
                                   child: GestureDetector(
                                     onTap: () {
-                                      Navigator.pushNamed(context, 'homepage');
+                                      Navigator.pushNamed(context, 'producto');
                                     },
                                     child: Card(
                                       shape: RoundedRectangleBorder(
