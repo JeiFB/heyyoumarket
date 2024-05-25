@@ -40,9 +40,10 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10),
-                const HeyYouTextFormField(
+                HeyYouTextFormField(
                   'Tu Nombre',
                   icon: Icons.email_rounded,
+                  onChange: (value) {},
                 ),
                 const SizedBox(height: 25),
                 const Align(
@@ -53,9 +54,10 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10),
-                const HeyYouTextFormField(
+                HeyYouTextFormField(
                   'Tu Correo',
                   icon: Icons.email_rounded,
+                  onChange: (value) {},
                 ),
                 const SizedBox(height: 25),
                 const Align(
@@ -66,10 +68,11 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10),
-                const HeyYouTextFormField(
+                HeyYouTextFormField(
                   'Tu contraseña',
                   icon: Icons.lock,
                   isPassword: true,
+                  onChange: (value) {},
                 ),
                 const SizedBox(height: 20),
                 const Align(
@@ -80,10 +83,11 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10),
-                const HeyYouTextFormField(
+                HeyYouTextFormField(
                   'Confirmar contraseña',
                   icon: Icons.lock,
                   isPassword: true,
+                  onChange: (value) {},
                 ),
                 const SizedBox(height: 20),
                 SizedBox(

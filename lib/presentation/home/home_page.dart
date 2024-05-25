@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:heyyoumarket/presentation/favoritos/favoritos_page.dart';
+import 'package:heyyoumarket/presentation/favoritos/favorites_page.dart';
 import 'package:heyyoumarket/presentation/home/home_page_content.dart';
 import 'package:heyyoumarket/presentation/productos/products_page.dart';
-import 'package:heyyoumarket/presentation/profile/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,8 +17,8 @@ class _HomePageState extends State<HomePage> {
     final pages = [
       const HomePageContent(),
       const ProductsPage(),
-      const FavoritosPage(),
-      const ProfilePage(),
+      const FavoritesPage(),
+      // const ProfilePage(),
     ];
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 242, 248, 252),

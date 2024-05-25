@@ -1,25 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ProductsPage extends StatelessWidget {
-  const ProductsPage({super.key});
+class FavoritesPage extends StatelessWidget {
+  const FavoritesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     // Lista de productos
     final List<Map<String, String>> products = [
       {'name': 'Producto 1', 'description': 'Descripción 1'},
-      {'name': 'Producto 1', 'description': 'Descripción 1'},
-      {'name': 'Producto 1', 'description': 'Descripción 1'},
-      {'name': 'Producto 1', 'description': 'Descripción 1'},
       {'name': 'Producto 2', 'description': 'Descripción 2'},
       {'name': 'Producto 3', 'description': 'Descripción 3'},
       {'name': 'Producto 4', 'description': 'Descripción 4'},
-      {'name': 'Producto 5', 'description': 'Descripción 5'},
-      {'name': 'Producto 6', 'description': 'Descripción 6'},
-      {'name': 'Producto 7', 'description': 'Descripción 7'},
-      {'name': 'Producto 8', 'description': 'Descripción 8'},
-      {'name': 'Producto 9', 'description': 'Descripción 9'},
-      {'name': 'Producto 10', 'description': 'Descripción 10'},
     ];
 
     return CustomScrollView(
@@ -44,7 +35,7 @@ class ProductsPage extends StatelessWidget {
                         Container(
                           margin: const EdgeInsets.only(left: 10),
                           child: const Text(
-                            'Productos',
+                            'Favoritos',
                             style: TextStyle(
                                 fontSize: 25, fontWeight: FontWeight.bold),
                           ),
@@ -180,7 +171,7 @@ class ProductsPage extends StatelessWidget {
                                                   children: [
                                                     IconButton(
                                                       icon: const Icon(
-                                                        Icons.favorite_border,
+                                                        Icons.favorite,
                                                         size: 30.0,
                                                         color: Color.fromARGB(
                                                             255, 0, 204, 102),
@@ -210,7 +201,7 @@ class ProductsPage extends StatelessWidget {
                               ),
                               if (product != products.last)
                                 const Divider(
-                                  color: Color.fromARGB(255, 0, 204, 102),
+                                  color: const Color.fromARGB(255, 0, 204, 102),
                                 ),
                             ],
                           ),

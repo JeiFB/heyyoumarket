@@ -5,8 +5,10 @@ class HeyYouTextFormField extends StatefulWidget {
   final IconData? icon;
   final bool isPassword;
   final String initial;
+  final Function(String value) onChange;
   const HeyYouTextFormField(
     this.hintText, {
+    required this.onChange,
     this.icon,
     this.isPassword = false,
     this.initial = '',
@@ -103,7 +105,7 @@ class _HeyYouTextFormFieldState extends State<HeyYouTextFormField> {
             : null,
       ),
       onChanged: (value) {
-        // email = value;
+        widget.onChange(value);
       },
     );
   }
