@@ -1,5 +1,4 @@
 import 'package:heyyoumarket/domain/repository/auth_repository.dart';
-import 'package:heyyoumarket/domain/utils/resource.dart';
 
 class LoginUsecase {
   final AuthRepository _authRepository;

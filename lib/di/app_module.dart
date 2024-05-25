@@ -4,6 +4,7 @@ import 'package:heyyoumarket/data/repository/auth_repository_impl.dart';
 import 'package:heyyoumarket/di/firebase_service.dart';
 import 'package:heyyoumarket/domain/use_cases/auth/auth_usecases.dart';
 import 'package:heyyoumarket/domain/use_cases/auth/login_usecase.dart';
+import 'package:heyyoumarket/domain/use_cases/auth/register_usecase.dart';
 import 'package:injectable/injectable.dart';
 
 @module
@@ -15,14 +16,24 @@ abstract class AppModule {
   //Instaces of firebase
   @injectable
   FirebaseAuth get firebaseAuth => FirebaseAuth.instance;
+
   @injectable
   FirebaseFirestore get firebaseFirestore => FirebaseFirestore.instance;
 
+//Collections
+  @Named('user')
   @injectable
-  AuthRepositoryImpl get authRepository => AuthRepositoryImpl(firebaseAuth);
+  CollectionReference get userRef => firebaseFirestore.collection('users');
+//
 
+//repository
+  @injectable
+  AuthRepositoryImpl get authRepository =>
+      AuthRepositoryImpl(firebaseAuth, userRef);
+//
   //usecases
   @injectable
-  AuthUsecases get authUsecases =>
-      AuthUsecases(login: LoginUsecase(authRepository));
+  AuthUsecases get authUsecases => AuthUsecases(
+      login: LoginUsecase(authRepository),
+      register: RegisterUsecase(authRepository));
 }
