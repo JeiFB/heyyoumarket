@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class HeyYouTextFormField extends StatefulWidget {
   final String hintText;
+  final String? errorText;
   final IconData? icon;
   final bool isPassword;
   final String initial;
@@ -12,6 +13,7 @@ class HeyYouTextFormField extends StatefulWidget {
     this.icon,
     this.isPassword = false,
     this.initial = '',
+    this.errorText = '',
     super.key,
   });
 
@@ -64,6 +66,7 @@ class _HeyYouTextFormFieldState extends State<HeyYouTextFormField> {
           fontSize: 14,
         ),
         filled: true,
+        errorText: (widget.errorText != '') ? widget.errorText : null,
         fillColor:
             _isFocused ? Colors.white : const Color.fromARGB(40, 0, 204, 102),
         border: OutlineInputBorder(

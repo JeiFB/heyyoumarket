@@ -4,6 +4,7 @@ import 'package:heyyoumarket/injection.dart';
 import 'package:heyyoumarket/presentation/auth/login/login_page.dart';
 import 'package:heyyoumarket/presentation/auth/login/login_viewmodel.dart';
 import 'package:heyyoumarket/presentation/auth/register/register_page.dart';
+import 'package:heyyoumarket/presentation/auth/register/register_viewmodel.dart';
 import 'package:heyyoumarket/presentation/home/home_page.dart';
 import 'package:heyyoumarket/presentation/producto/product_page.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +24,11 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-            create: (context) => LoginViewmodel(locator<AuthUsecases>())),
+          create: (context) => LoginViewmodel(locator<AuthUsecases>()),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => RegisterViewmodel(locator<AuthUsecases>()),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

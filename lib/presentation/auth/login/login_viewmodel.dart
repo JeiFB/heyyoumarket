@@ -38,6 +38,7 @@ class LoginViewmodel extends ChangeNotifier {
   }
 
   changePassword(String value) {
+    _responseController.add(Init());
     _state = _state.copyWith(password: ValidationItem(value: value, error: ''));
     notifyListeners();
   }

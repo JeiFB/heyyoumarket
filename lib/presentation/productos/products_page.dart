@@ -160,20 +160,46 @@ class ProductsPage extends StatelessWidget {
                                               children: [
                                                 Row(
                                                   children: [
-                                                    const Text(
-                                                      'D1',
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 15),
+                                                    Transform.translate(
+                                                      offset: const Offset(30,
+                                                          0), // Ajusta este valor para mover "market" hacia arriba y a la derecha
+                                                      child: const Text(
+                                                        'Heyou',
+                                                        style: TextStyle(
+                                                          fontFamily: 'heyam',
+                                                          fontSize: 20,
+                                                          color: Color.fromARGB(
+                                                              255, 0, 204, 102),
+                                                        ),
+                                                      ),
                                                     ),
-                                                    const SizedBox(
-                                                      width: 10,
+                                                    Transform.translate(
+                                                      offset: const Offset(-30,
+                                                          30), // Ajusta este valor para mover "market" hacia arriba y a la derecha
+                                                      child: const Text(
+                                                        'market',
+                                                        style: TextStyle(
+                                                          fontFamily: 'heyam',
+                                                          fontSize: 20,
+                                                          color: Color.fromARGB(
+                                                              255, 0, 204, 102),
+                                                        ),
+                                                      ),
                                                     ),
-                                                    Image.asset(
-                                                      'assets/img/d1.png',
-                                                      cacheHeight: 25,
-                                                    ),
+                                                    // const Text(
+                                                    //   'D1',
+                                                    //   style: TextStyle(
+                                                    //       fontWeight:
+                                                    //           FontWeight.bold,
+                                                    //       fontSize: 15),
+                                                    // ),
+                                                    // const SizedBox(
+                                                    //   width: 10,
+                                                    // ),
+                                                    // Image.asset(
+                                                    //   'assets/img/d1.png',
+                                                    //   cacheHeight: 25,
+                                                    // ),
                                                   ],
                                                 ),
                                                 Row(

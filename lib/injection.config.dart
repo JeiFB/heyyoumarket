@@ -37,6 +37,10 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i5.FirebaseFirestore>(() => appModule.firebaseFirestore);
     gh.factory<_i6.AuthRepositoryImpl>(() => appModule.authRepository);
     gh.factory<_i7.AuthUsecases>(() => appModule.authUsecases);
+    gh.factory<_i5.CollectionReference<Object?>>(
+      () => appModule.userRef,
+      instanceName: 'users',
+    );
     return this;
   }
 }

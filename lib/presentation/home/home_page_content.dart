@@ -312,56 +312,56 @@ class HomePageContent extends StatelessWidget {
                 ),
               ),
               // tecera tarjeta con adaptable
-              Card(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 10),
-                      child: const Text(
-                        'Tiendas',
-                        style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    GridView.builder(
-                      physics:
-                          const NeverScrollableScrollPhysics(), // Para que el GridView no se desplace por separado
-                      shrinkWrap: true,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3, // Número de columnas
-                        mainAxisSpacing: 3.0,
-                        crossAxisSpacing: 1.0,
-                        // childAspectRatio: 0.75,
-                      ),
-                      itemCount: 10, // Número de elementos en el grid
-                      itemBuilder: (context, index) {
-                        return Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(Icons.local_pizza, size: 50.0),
-                              const SizedBox(height: 10.0),
-                              Text(
-                                'Producto ${index + 1}',
-                                style: const TextStyle(fontSize: 16.0),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ),
+              // Card(
+              //   color: Colors.white,
+              //   shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(10.0),
+              //   ),
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.start,
+              //     children: [
+              //       Container(
+              //         margin: const EdgeInsets.only(left: 10),
+              //         child: const Text(
+              //           'Tiendas',
+              //           style: TextStyle(
+              //               fontSize: 18.0, fontWeight: FontWeight.bold),
+              //         ),
+              //       ),
+              //       GridView.builder(
+              //         physics:
+              //             const NeverScrollableScrollPhysics(), // Para que el GridView no se desplace por separado
+              //         shrinkWrap: true,
+              //         gridDelegate:
+              //             const SliverGridDelegateWithFixedCrossAxisCount(
+              //           crossAxisCount: 3, // Número de columnas
+              //           mainAxisSpacing: 3.0,
+              //           crossAxisSpacing: 1.0,
+              //           // childAspectRatio: 0.75,
+              //         ),
+              //         itemCount: 10, // Número de elementos en el grid
+              //         itemBuilder: (context, index) {
+              //           return Card(
+              //             shape: RoundedRectangleBorder(
+              //               borderRadius: BorderRadius.circular(20.0),
+              //             ),
+              //             child: Column(
+              //               mainAxisAlignment: MainAxisAlignment.center,
+              //               children: [
+              //                 const Icon(Icons.local_pizza, size: 50.0),
+              //                 const SizedBox(height: 10.0),
+              //                 Text(
+              //                   'Producto ${index + 1}',
+              //                   style: const TextStyle(fontSize: 16.0),
+              //                 ),
+              //               ],
+              //             ),
+              //           );
+              //         },
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),

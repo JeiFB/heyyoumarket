@@ -21,7 +21,7 @@ abstract class AppModule {
   FirebaseFirestore get firebaseFirestore => FirebaseFirestore.instance;
 
 //Collections
-  @Named('user')
+
   @injectable
   CollectionReference get userRef => firebaseFirestore.collection('users');
 //

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:heyyoumarket/presentation/auth/register/register_viewmodel.dart';
 import 'package:heyyoumarket/presentation/components/heyyou_button.dart';
 import 'package:heyyoumarket/presentation/components/heyyou_text_form_field.dart';
 
 class RegisterContent extends StatelessWidget {
-  const RegisterContent({super.key});
+  final RegisterViewmodel vm;
+  const RegisterContent(this.vm, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,29 +29,18 @@ class RegisterContent extends StatelessWidget {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Tu Nombre',
+                  'Nombre De Usuario',
                   style: TextStyle(fontFamily: 'Feather Bold', fontSize: 15),
                 ),
               ),
               const SizedBox(height: 5),
               HeyYouTextFormField(
-                'Tu Nombre',
+                'Nombre De Usuario',
+                errorText: vm.state.userNames.error,
                 icon: Icons.email_rounded,
-                onChange: (value) {},
-              ),
-              const SizedBox(height: 20),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Tu Apellido',
-                  style: TextStyle(fontFamily: 'Feather Bold', fontSize: 15),
-                ),
-              ),
-              const SizedBox(height: 5),
-              HeyYouTextFormField(
-                'Tu Apellido',
-                icon: Icons.email_rounded,
-                onChange: (value) {},
+                onChange: (value) {
+                  vm.changeUserName(value);
+                },
               ),
               const SizedBox(height: 20),
               const Align(
@@ -62,8 +53,11 @@ class RegisterContent extends StatelessWidget {
               const SizedBox(height: 5),
               HeyYouTextFormField(
                 'Tu Correo',
+                errorText: vm.state.email.error,
                 icon: Icons.email_rounded,
-                onChange: (value) {},
+                onChange: (value) {
+                  vm.changeEmail(value);
+                },
               ),
               const SizedBox(height: 20),
               const Align(
@@ -74,11 +68,7 @@ class RegisterContent extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5),
-              HeyYouTextFormField(
-                'Sexo',
-                icon: Icons.email_rounded,
-                onChange: (value) {},
-              ),
+              _buildGenderField(vm),
               const SizedBox(height: 20),
               const Align(
                 alignment: Alignment.centerLeft,
@@ -88,11 +78,7 @@ class RegisterContent extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5),
-              HeyYouTextFormField(
-                'Fecha de Nacimiento',
-                icon: Icons.email_rounded,
-                onChange: (value) {},
-              ),
+              _buildDateOfBirthField(context, vm),
               const SizedBox(height: 20),
               const Align(
                 alignment: Alignment.centerLeft,
@@ -104,77 +90,79 @@ class RegisterContent extends StatelessWidget {
               const SizedBox(height: 5),
               HeyYouTextFormField(
                 'Tu contraseña',
+                errorText: vm.state.password.error,
                 icon: Icons.lock,
                 isPassword: true,
-                onChange: (value) {},
-              ),
-              const SizedBox(height: 20),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Confirmar contraseña',
-                  style: TextStyle(fontFamily: 'Feather Bold', fontSize: 15),
-                ),
-              ),
-              const SizedBox(height: 5),
-              HeyYouTextFormField(
-                'Confirmar contraseña',
-                icon: Icons.lock,
-                isPassword: true,
-                onChange: (value) {},
+                onChange: (value) {
+                  vm.changePassword(value);
+                },
               ),
               const SizedBox(height: 20),
               SizedBox(
-                  width: double.infinity,
-                  child: HeyYouButton(
-                      texto: 'Registrarse',
-                      onPressed: () {},
-                      color: const Color.fromARGB(255, 0, 204, 102),
-                      textColor: Colors.white)),
+                width: double.infinity,
+                child: HeyYouButton(
+                  texto: 'Registrarse',
+                  onPressed: () {
+                    vm.register();
+                  },
+                  color: const Color.fromARGB(255, 0, 204, 102),
+                  textColor: Colors.white,
+                ),
+              ),
               const SizedBox(height: 30),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                      width: double.infinity,
-                      child: HeyYouButton(
-                          iconPath: 'assets/img/google.png',
-                          fSize: 20,
-                          pWith: 5,
-                          texto: 'Registrarse con google',
-                          onPressed: () {},
-                          color: Colors.white,
-                          textColor: Colors.black45)),
+                    width: double.infinity,
+                    child: HeyYouButton(
+                      iconPath: 'assets/img/google.png',
+                      fSize: 20,
+                      pWith: 5,
+                      texto: 'Registrarse con google',
+                      onPressed: () {},
+                      color: Colors.white,
+                      textColor: Colors.black45,
+                    ),
+                  ),
                   SizedBox(
-                      width: double.infinity,
-                      child: HeyYouButton(
-                          iconPath: 'assets/img/facebook.png',
-                          fSize: 20,
-                          pWith: 5,
-                          texto: 'Registrarse con facebook',
-                          onPressed: () {},
-                          color: Colors.white,
-                          textColor: Colors.black45))
+                    width: double.infinity,
+                    child: HeyYouButton(
+                      iconPath: 'assets/img/facebook.png',
+                      fSize: 20,
+                      pWith: 5,
+                      texto: 'Registrarse con facebook',
+                      onPressed: () {},
+                      color: Colors.white,
+                      textColor: Colors.black45,
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('¿Ya tienes cuenta?',
-                      style: TextStyle(
-                          fontFamily: 'Feather Bold',
-                          fontSize: 14,
-                          color: Colors.grey)),
+                  const Text(
+                    '¿Ya tienes cuenta?',
+                    style: TextStyle(
+                      fontFamily: 'Feather Bold',
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  ),
                   TextButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: const Text('Iniciar sesión',
-                        style: TextStyle(
-                            fontFamily: 'Feather Bold',
-                            fontSize: 14,
-                            color: Color.fromARGB(255, 0, 153, 77))),
+                    child: const Text(
+                      'Iniciar sesión',
+                      style: TextStyle(
+                        fontFamily: 'Feather Bold',
+                        fontSize: 14,
+                        color: Color.fromARGB(255, 0, 153, 77),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -183,6 +171,82 @@ class RegisterContent extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildGenderField(RegisterViewmodel vm) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(40, 0, 204, 102),
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: DropdownButtonFormField<String>(
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: BorderSide.none,
+          ),
+          errorText:
+              (vm.state.gender.error != '') ? vm.state.gender.error : null,
+          filled: true,
+          fillColor: Colors.transparent,
+        ),
+        items: const [
+          DropdownMenuItem(value: 'Hombre', child: Text('Hombre')),
+          DropdownMenuItem(value: 'Mujer', child: Text('Mujer')),
+        ],
+        onChanged: (value) {
+          vm.changeGender(value!);
+        },
+        onSaved: (value) {
+          vm.changeGender(value!);
+        },
+        icon: Icon(Icons.arrow_drop_down, color: Colors.grey.shade400),
+      ),
+    );
+  }
+
+  Widget _buildDateOfBirthField(BuildContext context, RegisterViewmodel vm) {
+    return TextFormField(
+      readOnly: true,
+      cursorColor: const Color.fromARGB(255, 0, 204, 102),
+      decoration: InputDecoration(
+        hintText: 'Selecciona tu fecha de nacimiento',
+        hintStyle: const TextStyle(
+          color: Colors.grey,
+          fontFamily: 'Feather Bold',
+          fontSize: 14,
+        ),
+        filled: true,
+        fillColor: const Color.fromARGB(40, 0, 204, 102),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(
+            width: 2.0,
+            color: Color.fromARGB(255, 0, 204, 102),
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide.none,
+        ),
+        prefixIcon: Icon(Icons.calendar_today, color: Colors.grey.shade400),
+      ),
+      onTap: () async {
+        DateTime? pickedDate = await showDatePicker(
+          context: context,
+          initialDate: DateTime.now(),
+          firstDate: DateTime(1900),
+          lastDate: DateTime(2100),
+        );
+        if (pickedDate != null) {
+          vm.changeDatebirth(pickedDate.toString().split(' ')[0]);
+        }
+      },
     );
   }
 }

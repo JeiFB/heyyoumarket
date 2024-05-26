@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:heyyoumarket/domain/utils/resource.dart';
 import 'package:heyyoumarket/presentation/auth/register/register_viewmodel.dart';
 import 'package:heyyoumarket/presentation/auth/register/widgets/register_content.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +11,7 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     RegisterViewmodel vm = Provider.of<RegisterViewmodel>(context);
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false, // Evita que el teclado provoque scroll
       body: Stack(
@@ -29,12 +31,13 @@ class RegisterPage extends StatelessWidget {
                       timeInSecForIosWeb: 3);
                 } else if (response is Success) {
                   WidgetsBinding.instance.addPostFrameCallback((timestamp) {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MyApp(locator<AuthUseCases>()),
-                        ),
-                        (route) => false);
+                    Navigator.pushNamed(context, 'homepage');
+                    // Navigator.pushAndRemoveUntil(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => MyApp(locator<AuthUseCases>()),
+                    //     ),
+                    //     (route) => false);
                   });
                 }
                 return Container();

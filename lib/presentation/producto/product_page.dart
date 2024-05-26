@@ -86,21 +86,21 @@ class ProductPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
+                          const Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Text(
-                                  'D1',
+                                  'Heyou Market',
                                   style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w600),
                                 ),
-                                Image.asset(
-                                  'assets/img/d1.png',
-                                  cacheHeight: 30,
-                                )
+                                // Image.asset(
+                                //   'assets/img/d1.png',
+                                //   cacheHeight: 30,
+                                // )
                               ],
                             ),
                           ),
@@ -135,7 +135,7 @@ class ProductPage extends StatelessWidget {
                               TextButton(
                                   onPressed: () {},
                                   child: const Text(
-                                    'Todos los produtos de la tienda D1',
+                                    'Todos los produtos de la tienda heyou market',
                                     textAlign: TextAlign.start,
                                   )),
                             ],
