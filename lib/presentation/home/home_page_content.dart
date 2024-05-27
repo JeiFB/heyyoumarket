@@ -70,13 +70,14 @@ class HomePageContent extends StatelessWidget {
                       const SizedBox(height: 10.0),
                       SizedBox(
                         height:
-                            120.0, // Altura del contenedor para las tarjetas
+                            130.0, // Altura del contenedor para las tarjetas
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
-                            children: List.generate(9, (index) {
+                            children: List.generate(5, (index) {
                               return SizedBox(
-                                width: 150.0, // Ancho de cada tarjeta
+                                width: 100.0,
+                                height: 130, // Ancho de cada tarjeta
                                 child: Container(
                                   margin: const EdgeInsets.only(left: 4),
                                   child: GestureDetector(
@@ -84,6 +85,8 @@ class HomePageContent extends StatelessWidget {
                                       Navigator.pushNamed(context, 'producto');
                                     },
                                     child: Card(
+                                      color: const Color.fromARGB(
+                                          255, 242, 248, 252),
                                       shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(20.0),
@@ -92,13 +95,23 @@ class HomePageContent extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          const Icon(Icons.local_pizza,
-                                              size: 50.0),
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20.0),
+                                            child: Image.asset(
+                                              'assets/img/carnes.png',
+                                              height:
+                                                  70.0, // Ajusta la altura según sea necesario
+                                              width:
+                                                  100.0, // Ajusta el ancho según sea necesario
+                                              // fit: BoxFit
+                                              //     .cover, // Ajusta la imagen para cubrir todo el card
+                                            ),
+                                          ),
                                           const SizedBox(height: 10.0),
-                                          Text(
-                                            'Producto ${index + 1}',
-                                            style:
-                                                const TextStyle(fontSize: 16.0),
+                                          const Text(
+                                            'categoria',
+                                            style: TextStyle(fontSize: 16.0),
                                           ),
                                         ],
                                       ),
@@ -141,7 +154,7 @@ class HomePageContent extends StatelessWidget {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
-                            children: List.generate(9, (index) {
+                            children: List.generate(5, (index) {
                               return SizedBox(
                                 width: 150.0, // Ancho de cada tarjeta
                                 child: Container(
@@ -151,6 +164,8 @@ class HomePageContent extends StatelessWidget {
                                       Navigator.pushNamed(context, 'producto');
                                     },
                                     child: Card(
+                                      color: const Color.fromARGB(
+                                          255, 242, 248, 252),
                                       shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(20.0),
@@ -159,12 +174,19 @@ class HomePageContent extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          const Icon(Icons.local_pizza,
-                                              size: 50.0),
-                                          // Icon(
-
-                                          //   const Icon(),
-                                          // ),
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20.0),
+                                            child: Image.asset(
+                                              'assets/img/tortilla.png',
+                                              height:
+                                                  70.0, // Ajusta la altura según sea necesario
+                                              width:
+                                                  100.0, // Ajusta el ancho según sea necesario
+                                              // fit: BoxFit
+                                              //     .cover, // Ajusta la imagen para cubrir todo el card
+                                            ),
+                                          ),
                                           const SizedBox(height: 10.0),
                                           Text(
                                             'Producto ${index + 1}',
@@ -219,6 +241,8 @@ class HomePageContent extends StatelessWidget {
                                 child: Container(
                                   margin: EdgeInsets.only(left: 4),
                                   child: Card(
+                                    color: const Color.fromARGB(
+                                        255, 242, 248, 252),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
@@ -226,8 +250,19 @@ class HomePageContent extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        const Icon(Icons.local_pizza,
-                                            size: 50.0),
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                          child: Image.asset(
+                                            'assets/img/aceitecanola.png',
+                                            height:
+                                                70.0, // Ajusta la altura según sea necesario
+                                            width:
+                                                100.0, // Ajusta el ancho según sea necesario
+                                            // fit: BoxFit
+                                            //     .cover, // Ajusta la imagen para cubrir todo el card
+                                          ),
+                                        ),
                                         const SizedBox(height: 10.0),
                                         Text(
                                           'Producto ${index + 1}',
@@ -282,6 +317,8 @@ class HomePageContent extends StatelessWidget {
                                 child: Container(
                                   margin: EdgeInsets.only(left: 4),
                                   child: Card(
+                                    color: const Color.fromARGB(
+                                        255, 242, 248, 252),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
@@ -289,9 +326,19 @@ class HomePageContent extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        const Icon(Icons.local_pizza,
-                                            size: 50.0),
-                                        const SizedBox(height: 10.0),
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                          child: Image.asset(
+                                            'assets/img/aguacate.png',
+                                            height:
+                                                70.0, // Ajusta la altura según sea necesario
+                                            width:
+                                                100.0, // Ajusta el ancho según sea necesario
+                                            // fit: BoxFit
+                                            //     .cover, // Ajusta la imagen para cubrir todo el card
+                                          ),
+                                        ),
                                         Text(
                                           'Producto ${index + 1}',
                                           style:
